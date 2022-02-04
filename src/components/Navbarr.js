@@ -1,11 +1,24 @@
-import React from 'react';
+import React , {useState} from 'react';
 import Navbar from 'react-bootstrap/Navbar'
 import { useNavigate } from 'react-router-dom'
-import { Button, Container, Nav, NavDropdown } from 'react-bootstrap'
+import { Button, Container, Nav, NavDropdown  } from 'react-bootstrap'
 import {BoxArrowRight} from 'react-bootstrap-icons'
+import { getAuth ,onAuthStateChanged } from 'firebase/auth';
+import '../App.css'
 const photo = require('./imgmain.png');
 
+const auth = getAuth()
+
 function Navbarr() {
+    const [emaill, setemaill] = useState("");
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+          setemaill(auth.currentUser.email);
+        } else {
+          // User is signed out
+          // ...
+        }
+    });
     let navigate = useNavigate();
     const handleLogout = () => {
         sessionStorage.removeItem('Auth Token');
@@ -24,6 +37,11 @@ function Navbarr() {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
                     </Nav>
+                    <div className='n1-1'>
+                    <Nav className= 'navbaremail ' >
+                        {emaill}
+                    </Nav>
+                    </div>
                     <Nav>
                         <Button variant="outline-danger" onClick={handleLogout} ><BoxArrowRight size={20}/> Logout</Button>
                     </Nav>

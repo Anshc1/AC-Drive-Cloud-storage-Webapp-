@@ -14,7 +14,7 @@ function Welcome() {
             <h1>Welcome to AcDrive</h1> 
             <Button variant="outline-dark" href="/login">Log in</Button>
             <Button variant="outline-dark" href="signup">Create an Account</Button>
-            <Button variant="outline-dark">Forgot Password ?</Button>        
+            <Button variant="outline-dark" href='/changepassword'>Forgot Password ?</Button>        
         </div>
     </div>
     )

@@ -8,6 +8,7 @@ import Dashboard from './components/dashbord';
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import Welcome from './components/welcome';
+import Changepassword from './components/Changepassword'
 
 function App() {
   const [email, setEmail] = useState()
@@ -65,6 +66,7 @@ function App() {
           <Route path='/login' element={<Commonform title="Login" setEmail={setEmail} setPassword={setPassword} handleAction={() => handleAction(1)} />} />
           <Route path='/signup' element={<Commonform title="Signup" setEmail={setEmail} setPassword={setPassword} handleAction={() => handleAction(2)} />} />
           <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/changepassword' element={<Changepassword/>} />
         </Routes>
       </>
     </div>
