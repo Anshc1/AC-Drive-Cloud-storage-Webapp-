@@ -1,10 +1,24 @@
-import React from 'react';
+import React ,{useState ,useEffect} from 'react';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import {Alert ,CloseButton} from 'react-bootstrap'
 import '../App.css'
 const photo = require('./imgmain.png');
+
+
 function Commonform({ title, setPassword, setEmail, handleAction }) {
+    const [able, setable] = useState(true);
+    useEffect(() => {
+      return () => {
+        if(title === "Signup"){
+            setable(false); 
+        }else{
+            setable(false); 
+        }
+      }
+    })
     return (
+        <>   
         <div className="form ">
             <a href="/">
             <img  src={photo} width="150"
@@ -27,12 +41,13 @@ function Commonform({ title, setPassword, setEmail, handleAction }) {
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
                     </Form.Group>
-                    <Button variant="primary" onClick={handleAction} >
+                    <Button variant="primary" onClick={handleAction} disabled={able} >
                         {title}
                     </Button>
                 </Form>
             </div>
         </div>
+    </>
     )
 }
 

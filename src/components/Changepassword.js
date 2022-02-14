@@ -16,13 +16,13 @@ function Commonform() {
     function handleAction() {
         sendPasswordResetEmail(auth, email)
             .then(() => {
-                console.log("Password reset email sent!")
+              
                 setShow(true); 
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                console.log(errorMessage); 
+              
                 seterr(errorMessage); 
                 setShow1(true); 
             });

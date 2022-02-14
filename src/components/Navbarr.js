@@ -11,9 +11,15 @@ const auth = getAuth()
 
 function Navbarr() {
     const [emaill, setemaill] = useState("");
+    const [status, setstatus] = useState("")
     onAuthStateChanged(auth, (user) => {
         if (user) {
           setemaill(auth.currentUser.email);
+          if(user.emailVerified===true){
+              setstatus("Verified"); 
+          }else{
+              setstatus("Unverified")
+          }
         } else {
           // User is signed out
           // ...
@@ -39,7 +45,7 @@ function Navbarr() {
                     </Nav>
                     <div className='n1-1'>
                     <Nav className= 'navbaremail ' >
-                        {emaill}
+                        {emaill}( {status} )
                     </Nav>
                     </div>
                     <Nav>

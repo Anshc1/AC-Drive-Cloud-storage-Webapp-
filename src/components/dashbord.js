@@ -14,13 +14,13 @@ function Dashboard() {
         }else{
             navigate('/login')
         }
-    }, [])
+    }, []); 
+    
     return(
     <>
      <Navbarr/>
      <br></br>
      <Centre/>
-    
     </> 
     )
 }
