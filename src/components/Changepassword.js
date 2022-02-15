@@ -8,7 +8,6 @@ const photo = require('./imgmain.png');
 const auth = getAuth();
 
 function Commonform() {
-   
     const [email, setemail] = useState("");
     const [Show, setShow] = useState(false);
     const [Show1, setShow1] = useState(false);
